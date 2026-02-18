@@ -1,0 +1,41 @@
+<style>
+body {font-family: Arial; background:#f4f6f9; margin:0;}
+
+header {background:#2d89ef; color:white; padding:25px; text-align:center;}
+
+.main {max-width:850px; margin:0 auto; padding:20px;}
+
+.card {background:white; padding:20px; margin:25px 0; border-radius:8px;
+box-shadow:0 4px 12px rgba(0,0,0,0.08);}
+
+button {background:#2d89ef; color:white; border:none; padding:8px 15px;
+border-radius:4px; cursor:pointer;}
+
+button:hover {background:#1b5fa7;}
+
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 25px 10px;
+    margin-top: 40px;
+}
+
+footer a {
+    color: #9ecbff;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.site-title {
+    font-size: 32px;
+    margin-bottom: 5px;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
+</style>

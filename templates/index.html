@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Free Online PDF Tools</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></link>
+
+<script>
+
+function showLoading(id){document.getElementById(id).style.display="block";}
+window.addEventListener("pageshow", function(){
+document.querySelectorAll("[id^='l']").forEach(el=>el.style.display="none");
+});
+
+</script>
+
+</head>
+
+<body>
+
+<header>
+    <h1 class="site-title">"Tool-Buddy-PDF"</h1>
+    <p>Free Online PDF Tools – Fast, Secure & Simple</p>
+</header>
+
+
+<div class="main">
+
+<div class="card">
+<h2>🖼 Images to PDF</h2>
+<form action="/img_to_pdf" method="post" enctype="multipart/form-data" onsubmit="showLoading('l1')">
+<input type="file" name="images" multiple required><br><br>
+<button>Convert</button>
+<div id="l1" style="display:none;color:green;">Processing...</div>
+</form>
+</div>
+
+<div class="card">
+<h2>📄 PDF to Images</h2>
+<form action="/pdf_to_img" method="post" enctype="multipart/form-data" onsubmit="showLoading('l2')">
+<input type="file" name="pdf" required><br><br>
+From <input type="number" name="start" min="1" required>
+To <input type="number" name="end" min="1" required><br><br>
+<button>Convert</button>
+<div id="l2" style="display:none;color:green;">Processing...</div>
+</form>
+</div>
+
+<div class="card">
+<h2>🔀 Merge PDF</h2>
+<form action="/merge_pdf" method="post" enctype="multipart/form-data" onsubmit="showLoading('l3')">
+<input type="file" name="pdfs" multiple required><br><br>
+<button>Merge</button>
+<div id="l3" style="display:none;color:green;">Processing...</div>
+</form>
+</div>
+
+<div class="card">
+<h2>✂️ Split PDF</h2>
+<form action="/split_pdf" method="post" enctype="multipart/form-data" onsubmit="showLoading('l4')">
+<input type="file" name="pdf" required><br><br>
+From <input type="number" name="start" min="1" required>
+To <input type="number" name="end" min="1" required><br><br>
+<button>Split</button>
+<div id="l4" style="display:none;color:green;">Processing...</div>
+</form>
+</div>
+
+<div class="card">
+<h2>📦 Compress PDF</h2>
+<form action="/compress_pdf" method="post" enctype="multipart/form-data" onsubmit="showLoading('l5')">
+<input type="file" name="pdf" required><br><br>
+<select name="level">
+<option value="low">Low Compression</option>
+<option value="medium" selected>Medium</option>
+<option value="high">High Compression</option>
+</select><br><br>
+<button>Compress</button>
+<div id="l5" style="display:none;color:green;">Processing...</div>
+</form>
+</div>
+
+</div>
+
+<footer>
+    <p>© 2026 Tool-Buddy-PDF. All rights reserved.</p>
+    <p>
+        <a href="/about">About</a> |
+        <a href="/contact">Contact</a> |
+        <a href="/privacy">Privacy Policy</a>
+    </p>
+</footer>
+
+
+</body>
+</html>
