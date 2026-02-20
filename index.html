@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToolBuddy PDF - Free Online PDF Tools</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online PDF tools to convert images to PDF, PDF to images, merge, split and compress PDF files securely.">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+         <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ToolBuddy PDF"</h1>
+         <p>Convert, Split, Merge and Compress By ToolBuddy 😃</p>
+        </div>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="#tools">Features</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+        </nav>
+    </div>
+</header><br>
+
+<main id="tools" class="container">
+
+    <!-- Images to PDF -->
+    <section class="tool-card">
+        <h2>🖼 Images to PDF</h2>
+        <form action="/img_to_pdf" method="post" enctype="multipart/form-data">
+            <input type="file" name="images" multiple required>
+            <button type="submit">Convert to PDF</button>
+        </form>
+    </section>
+
+    <!-- PDF to Images -->
+    <section class="tool-card">
+        <h2>📄 PDF to Images</h2>
+        <form action="/pdf_to_img" method="post" enctype="multipart/form-data">
+            <input type="file" name="pdf" required>
+
+            <div class="page-range">
+                <input type="number" name="start_page" placeholder="From page">
+                <input type="number" name="end_page" placeholder="To page">
+            </div>
+
+            <button type="submit">Convert to Images</button>
+        </form>
+    </section>
+
+    <!-- Merge PDF -->
+    <section class="tool-card">
+        <h2>📚 Merge PDF</h2>
+        <form action="/merge_pdf" method="post" enctype="multipart/form-data">
+            <input type="file" name="pdfs" multiple required>
+            <button type="submit">Merge PDFs</button>
+        </form>
+    </section>
+
+    <!-- Split PDF -->
+    <section class="tool-card">
+        <h2>✂️ Split PDF</h2>
+        <form action="/split_pdf" method="post" enctype="multipart/form-data">
+            <input type="file" name="pdf" required>
+
+            <div class="page-range">
+                <input type="number" name="start_page" placeholder="From page" required>
+                <input type="number" name="end_page" placeholder="To page" required>
+            </div>
+
+            <button type="submit">Split PDF</button>
+        </form>
+    </section>
+
+    <!-- Compress PDF -->
+    <section class="tool-card">
+        <h2>🗜 Compress PDF</h2>
+        <form action="/compress_pdf" method="post" enctype="multipart/form-data">
+            <input type="file" name="pdf" required>
+
+            <select name="level">
+                <option value="low">Low Compression</option>
+                <option value="medium">Medium Compression</option>
+                <option value="high">High Compression</option>
+            </select>
+
+            <button type="submit">Compress PDF</button>
+        </form>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="footer-links">
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+    </div>
+    <p>© 2026 ToolBuddy PDF. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

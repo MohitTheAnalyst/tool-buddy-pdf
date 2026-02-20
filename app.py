@@ -39,8 +39,14 @@ def img_to_pdf():
 @app.route("/pdf_to_img", methods=["POST"])
 def pdf_to_img():
     pdf_file = request.files["pdf"]
-    start = int(request.form["start"])
-    end = int(request.form["end"])
+    start = request.form.get("start_page")
+    end = request.form.get("end_page")
+
+    if not start or not end:
+        return "Please provide page range."
+
+    start = int(start)
+    end = int(end)
 
     input_path = os.path.join("uploads", pdf_file.filename)
     pdf_file.save(input_path)
@@ -90,9 +96,14 @@ def merge_pdf():
 @app.route("/split_pdf", methods=["POST"])
 def split_pdf():
     pdf_file = request.files["pdf"]
-    start = int(request.form["start"])
-    end = int(request.form["end"])
+    start = request.form.get("start_page")
+    end = request.form.get("end_page")
 
+    if not start or not end:
+        return "Please provide page range."
+
+    start = int(start)
+    end = int(end)
     input_path = os.path.join("uploads", pdf_file.filename)
     pdf_file.save(input_path)
 
@@ -142,15 +153,30 @@ def compress_pdf():
 def about():
     return render_template("about.html")
 
+@app.route("/privacy")
+def privacy():
+    return render_template("privacy.html")
 
 @app.route("/contact")
 def contact():
     return render_template("contact.html")
 
+@app.route("/terms")
+def terms():
+    return render_template("terms.html")
 
-@app.route("/privacy")
-def privacy():
-    return render_template("privacy.html")
+#---------------sitemap--------------
+
+@app.route("/sitemap.xml")
+def sitemap():
+    return """<?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+        <url><loc>https://tool-buddy-pdf-g6h6.onrender.com/</loc></url>
+        <url><loc>https://tool-buddy-pdf-g6h6.onrender.com/about</loc></url>
+        <url><loc>https://tool-buddy-pdf-g6h6.onrender.com/contact</loc></url>
+        <url><loc>https://tool-buddy-pdf-g6h6.onrender.com/privacy</loc></url>
+        <url><loc>https://tool-buddy-pdf-g6h6.onrender.com/terms</loc></url>
+    </urlset>""", 200, {'Content-Type': 'application/xml'}
 
 
 
