@@ -1,24 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>About Us</title>
-<style>
-body { font-family: Arial; padding: 30px; background:#f4f6f9; }
-.box { background:#fff; padding:25px; max-width:800px; margin:auto; }
-</style>
+    <meta charset="UTF-8">
+    <title>About - ToolBuddy PDF</title>
+    <meta name="description" content="Learn about ToolBuddy PDF - free, secure and fast online PDF tools.">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-<div class="box">
-<h1>About Us</h1>
 
-<p>This website provides free online PDF tools to help users compress, split, merge, and convert PDF files easily.</p>
+<header class="navbar">
+    <div class="nav-container">
+        <div class="logo">ToolBuddy PDF</div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+        </nav>
+    </div>
+</header>
 
-<p>Our goal is to offer simple, fast, and privacy-friendly tools without requiring registration.</p>
+<main class="container">
+    <section class="tool-card">
+        <h1>About ToolBuddy PDF</h1><br>
+        <p>
+            ToolBuddy PDF provides free and secure online PDF tools including
+            image to PDF conversion, PDF to images, merge, split and compression.
+        </p><br>
+        <p>
+            Our goal is to make document management simple, fast and accessible
+            without requiring software installation.
+        </p>
+    </section>
+</main>
 
-<p>All processing happens automatically and files are deleted shortly after use.</p>
+<footer class="site-footer">
+    <p>© 2026 ToolBuddy PDF. All rights reserved.</p>
+</footer>
 
-<p><a href="/">← Back to Home</a></p>
-</div>
 </body>
 </html>

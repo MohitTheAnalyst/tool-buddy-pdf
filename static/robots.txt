@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tool-buddy-pdf-g6h6.onrender.com/sitemap.xml

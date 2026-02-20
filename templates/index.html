@@ -1,96 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Free Online PDF Tools</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></link>
+    <meta charset="UTF-8">
+    <title>ToolBuddy PDF - Free Online PDF Tools</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online PDF tools to convert images to PDF, PDF to images, merge, split and compress PDF files securely.">
 
-<script>
-
-function showLoading(id){document.getElementById(id).style.display="block";}
-window.addEventListener("pageshow", function(){
-document.querySelectorAll("[id^='l']").forEach(el=>el.style.display="none");
-});
-
-</script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
 </head>
 
 <body>
 
-<header>
-    <h1 class="site-title">"Tool-Buddy-PDF"</h1>
-    <p>Free Online PDF Tools – Fast, Secure & Simple</p>
-</header>
+<header class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+         <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ToolBuddy PDF"</h1>
+         <p>Convert, Split, Merge and Compress By ToolBuddy 😃</p>
+        </div>
 
+        <nav>
+            <a href="/">Home</a>
+            <a href="#tools">Features</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+        </nav>
+    </div>
+</header><br>
 
-<div class="main">
+<main id="tools" class="container">
 
-<div class="card">
-<h2>🖼 Images to PDF</h2>
-<form action="/img_to_pdf" method="post" enctype="multipart/form-data" onsubmit="showLoading('l1')">
-<input type="file" name="images" multiple required><br><br>
-<button>Convert</button>
-<div id="l1" style="display:none;color:green;">Processing...</div>
-</form>
-</div>
+    <!-- Images to PDF -->
+    <section class="tool-card">
+        <h2>🖼 Images to PDF</h2>
+        <form action="/img_to_pdf" method="post" enctype="multipart/form-data">
+            <input type="file" name="images" multiple required>
+            <button type="submit">Convert to PDF</button>
+        </form>
+    </section>
 
-<div class="card">
-<h2>📄 PDF to Images</h2>
-<form action="/pdf_to_img" method="post" enctype="multipart/form-data" onsubmit="showLoading('l2')">
-<input type="file" name="pdf" required><br><br>
-From <input type="number" name="start" min="1" required>
-To <input type="number" name="end" min="1" required><br><br>
-<button>Convert</button>
-<div id="l2" style="display:none;color:green;">Processing...</div>
-</form>
-</div>
+    <!-- PDF to Images -->
+    <section class="tool-card">
+        <h2>📄 PDF to Images</h2>
+        <form action="/pdf_to_img" method="post" enctype="multipart/form-data">
+            <input type="file" name="pdf" required>
 
-<div class="card">
-<h2>🔀 Merge PDF</h2>
-<form action="/merge_pdf" method="post" enctype="multipart/form-data" onsubmit="showLoading('l3')">
-<input type="file" name="pdfs" multiple required><br><br>
-<button>Merge</button>
-<div id="l3" style="display:none;color:green;">Processing...</div>
-</form>
-</div>
+            <div class="page-range">
+                <input type="number" name="start_page" placeholder="From page">
+                <input type="number" name="end_page" placeholder="To page">
+            </div>
 
-<div class="card">
-<h2>✂️ Split PDF</h2>
-<form action="/split_pdf" method="post" enctype="multipart/form-data" onsubmit="showLoading('l4')">
-<input type="file" name="pdf" required><br><br>
-From <input type="number" name="start" min="1" required>
-To <input type="number" name="end" min="1" required><br><br>
-<button>Split</button>
-<div id="l4" style="display:none;color:green;">Processing...</div>
-</form>
-</div>
+            <button type="submit">Convert to Images</button>
+        </form>
+    </section>
 
-<div class="card">
-<h2>📦 Compress PDF</h2>
-<form action="/compress_pdf" method="post" enctype="multipart/form-data" onsubmit="showLoading('l5')">
-<input type="file" name="pdf" required><br><br>
-<select name="level">
-<option value="low">Low Compression</option>
-<option value="medium" selected>Medium</option>
-<option value="high">High Compression</option>
-</select><br><br>
-<button>Compress</button>
-<div id="l5" style="display:none;color:green;">Processing...</div>
-</form>
-</div>
+    <!-- Merge PDF -->
+    <section class="tool-card">
+        <h2>📚 Merge PDF</h2>
+        <form action="/merge_pdf" method="post" enctype="multipart/form-data">
+            <input type="file" name="pdfs" multiple required>
+            <button type="submit">Merge PDFs</button>
+        </form>
+    </section>
 
-</div>
+    <!-- Split PDF -->
+    <section class="tool-card">
+        <h2>✂️ Split PDF</h2>
+        <form action="/split_pdf" method="post" enctype="multipart/form-data">
+            <input type="file" name="pdf" required>
 
-<footer>
-    <p>© 2026 Tool-Buddy-PDF. All rights reserved.</p>
-    <p>
-        <a href="/about">About</a> |
-        <a href="/contact">Contact</a> |
+            <div class="page-range">
+                <input type="number" name="start_page" placeholder="From page" required>
+                <input type="number" name="end_page" placeholder="To page" required>
+            </div>
+
+            <button type="submit">Split PDF</button>
+        </form>
+    </section>
+
+    <!-- Compress PDF -->
+    <section class="tool-card">
+        <h2>🗜 Compress PDF</h2>
+        <form action="/compress_pdf" method="post" enctype="multipart/form-data">
+            <input type="file" name="pdf" required>
+
+            <select name="level">
+                <option value="low">Low Compression</option>
+                <option value="medium">Medium Compression</option>
+                <option value="high">High Compression</option>
+            </select>
+
+            <button type="submit">Compress PDF</button>
+        </form>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="footer-links">
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
         <a href="/privacy">Privacy Policy</a>
-    </p>
+        <a href="/terms">Terms of Service</a>
+    </div>
+    <p>© 2026 ToolBuddy PDF. All rights reserved.</p>
 </footer>
-
 
 </body>
 </html>
