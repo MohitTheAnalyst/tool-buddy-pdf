@@ -178,6 +178,13 @@ def sitemap():
         <url><loc>https://tool-buddy-pdf-g6h6.onrender.com/terms</loc></url>
     </urlset>""", 200, {'Content-Type': 'application/xml'}
 
+#----------------imp routes------------
+
+from flask import send_from_directory
+
+@app.route('/robots.txt')
+def robots():
+    return send_from_directory('static', 'robots.txt')
 
 
 if __name__ == "__main__":
